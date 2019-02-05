@@ -1,0 +1,47 @@
+%YAML 1.1
+---
+actions:
+- utter_goodbye
+- utter_thanks
+- utter_issue
+- utter_greet
+- utter_name
+- action_joke
+- action_getdata
+config:
+  store_entities_as_slots: true
+entities:
+- name
+- tool
+forms: []
+intents:
+- unable_leave:
+    use_entities: true
+- greet:
+    use_entities: true
+- joke:
+    use_entities: true
+- name:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- thanks:
+    use_entities: true
+- deny:
+    use_entities: true
+slots:
+  name:
+    auto_fill: true
+    initial_value: human
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_goodbye:
+  - text: Talk to you later!
+  utter_greet:
+  - text: Nice to you meet you {name}. How can I help?
+  utter_issue:
+  - text: So you are unable to apply for a leave.
+  utter_name:
+  - text: Hey there! Tell me your name.
+  utter_thanks:
+  - text: My pleasure.
